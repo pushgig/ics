@@ -1,7 +1,8 @@
 {
   "presets": [
+    "@babel/preset-flow",
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "node": "10.15.1"
@@ -9,19 +10,5 @@
       }
     ]
   ],
-  "plugins": [
-    "transform-flow-strip-types",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "pg": "./src",
-          "test": "./test"
-        }
-      }
-    ]
-  ]
+  "plugins": ["@babel/plugin-proposal-object-rest-spread"]
 }

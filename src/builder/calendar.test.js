@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import buildCalendar from './calendar';
 
 describe('ics/builder/calendar', () => {
@@ -31,7 +30,7 @@ describe('ics/builder/calendar', () => {
       ],
     });
 
-    expect(cal.toString()).to.equal(
+    expect(cal.toString()).toBe(
       [
         'BEGIN:VCALENDAR',
         'PRODID:pushgig-ics',
@@ -89,6 +88,6 @@ describe('ics/builder/calendar', () => {
           },
         ],
       }),
-    ).to.throw();
+    ).toThrowError();
   });
 });

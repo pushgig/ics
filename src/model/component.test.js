@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import createParameter from './parameter';
 import createProperty from './property';
 import createComponent from './component';
@@ -6,7 +5,7 @@ import createComponent from './component';
 describe('ics/model/component', () => {
   it('should convert to string', () => {
     const comp = createComponent({ name: 'VTIMEZONE' });
-    expect(comp.toString()).to.equal('BEGIN:VTIMEZONE\r\nEND:VTIMEZONE');
+    expect(comp.toString()).toBe('BEGIN:VTIMEZONE\r\nEND:VTIMEZONE');
   });
 
   it('should convert to string with properties', () => {
@@ -21,7 +20,7 @@ describe('ics/model/component', () => {
     ];
 
     const comp = createComponent({ name: 'VTIMEZONE', properties });
-    expect(comp.toString()).to.equal(
+    expect(comp.toString()).toBe(
       [
         'BEGIN:VTIMEZONE',
         'DTSTART;TZID=America/Chicago;VALUE="foo:bar":2018-01-01',

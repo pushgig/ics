@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import {
   escape,
   quote,
@@ -12,49 +11,47 @@ import {
 
 describe('ics/utils/string', () => {
   it('should escape a string', () => {
-    expect(escape(';XXX;')).to.equal('\\;XXX\\;');
-    expect(escape(',XXX,')).to.equal('\\,XXX\\,');
-    expect(escape('"XXX"')).to.equal('\\"XXX\\"');
-    expect(escape('\\\\XXX\\\\')).to.equal('\\\\\\\\XXX\\\\\\\\');
-    expect(escape('\nXXX\n\n')).to.equal('\\nXXX\\n\\n');
+    expect(escape(';XXX;')).toBe('\\;XXX\\;');
+    expect(escape(',XXX,')).toBe('\\,XXX\\,');
+    expect(escape('"XXX"')).toBe('\\"XXX\\"');
+    expect(escape('\\\\XXX\\\\')).toBe('\\\\\\\\XXX\\\\\\\\');
+    expect(escape('\nXXX\n\n')).toBe('\\nXXX\\n\\n');
   });
 
   it('should quote a string', () => {
-    expect(quote('XXX')).to.equal('"XXX"');
-    expect(quote('"XXX"')).to.equal('"XXX"');
-    expect(quote("'")).to.equal('"\'"');
+    expect(quote('XXX')).toBe('"XXX"');
+    expect(quote('"XXX"')).toBe('"XXX"');
+    expect(quote("'")).toBe('"\'"');
   });
 
   it('should unquote a string', () => {
-    expect(unquote('"XXX"')).to.equal('XXX');
-    expect(unquote('""XXX""')).to.equal('"XXX"');
-    expect(unquote('"\'"')).to.equal("'");
+    expect(unquote('"XXX"')).toBe('XXX');
+    expect(unquote('""XXX""')).toBe('"XXX"');
+    expect(unquote('"\'"')).toBe("'");
   });
 
   it('should check if a string should be quoted', () => {
-    expect(shouldQuote('XXX')).to.equal(false);
-    expect(shouldQuote('XX;X')).to.equal(true);
-    expect(shouldQuote(':XXX')).to.equal(true);
-    expect(shouldQuote(':XXX')).to.equal(true);
-    expect(shouldQuote('XXX,')).to.equal(true);
-    expect(shouldQuote('💩')).to.equal(true);
-    expect(shouldQuote('"XXX')).to.equal(false);
+    expect(shouldQuote('XXX')).toBe(false);
+    expect(shouldQuote('XX;X')).toBe(true);
+    expect(shouldQuote(':XXX')).toBe(true);
+    expect(shouldQuote(':XXX')).toBe(true);
+    expect(shouldQuote('XXX,')).toBe(true);
+    expect(shouldQuote('💩')).toBe(true);
+    expect(shouldQuote('"XXX')).toBe(false);
   });
 
   it('should join lines', () => {
-    expect(joinLines(['XXX', null, 'XXX', false, 'XXX', undefined, ''])).to.equal(
-      'XXX\r\nXXX\r\nXXX',
-    );
+    expect(joinLines(['XXX', null, 'XXX', false, 'XXX', undefined, ''])).toBe('XXX\r\nXXX\r\nXXX');
   });
 
   it('should join lines with trailing newline', () => {
-    expect(joinLines(['XXX', null, 'XXX', false, 'XXX', undefined, ''], true)).to.equal(
+    expect(joinLines(['XXX', null, 'XXX', false, 'XXX', undefined, ''], true)).toBe(
       'XXX\r\nXXX\r\nXXX\r\n',
     );
   });
 
   it('should trim joined lines', () => {
-    expect(joinLines(['XXX  ', '  ', '   XXX', false, 'XXX  ', undefined, ' '], true)).to.equal(
+    expect(joinLines(['XXX  ', '  ', '   XXX', false, 'XXX  ', undefined, ' '], true)).toBe(
       'XXX\r\nXXX\r\nXXX\r\n',
     );
   });
@@ -66,11 +63,11 @@ describe('ics/utils/string', () => {
     const folded = foldLine(content);
     const lines = folded.split('\r\n\t');
 
-    expect(lines.length).to.equal(Math.ceil(count / LINE_MAX_LENGTH));
+    expect(lines.length).toBe(Math.ceil(count / LINE_MAX_LENGTH));
   });
 
   it('should convert a key to a custom prop name', () => {
-    expect(customPropertyName('prefix', 'key')).to.equal('X-PREFIX-KEY');
-    expect(customPropertyName('testPrefix', 'testKey')).to.equal('X-TESTPREFIX-TESTKEY');
+    expect(customPropertyName('prefix', 'key')).toBe('X-PREFIX-KEY');
+    expect(customPropertyName('testPrefix', 'testKey')).toBe('X-TESTPREFIX-TESTKEY');
   });
 });

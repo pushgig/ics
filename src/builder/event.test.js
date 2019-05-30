@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import buildEvent from './event';
 
 describe('ics/builder/event', () => {
@@ -26,7 +25,7 @@ describe('ics/builder/event', () => {
       url: 'http://pushgig.com',
     });
 
-    expect(cal.toString()).to.equal(
+    expect(cal.toString()).toBe(
       [
         'BEGIN:VEVENT',
         'UID:abc-123',

@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { LINE_MAX_LENGTH } from './utils/string';
 import { buildCalendar } from '.';
 
@@ -20,6 +19,6 @@ describe('ics/index', () => {
 
     const ics = cal.toString();
     const max = Math.max(...ics.split('\r\n').map(line => line.length));
-    expect(max).to.be.at.most(LINE_MAX_LENGTH);
+    expect(max).toBeLessThanOrEqual(LINE_MAX_LENGTH);
   });
 });

@@ -5,11 +5,6 @@
     "node": true,
     "jest": true
   },
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
-  },
   "plugins": ["prettier", "flowtype"],
   "rules": {
     "prettier/prettier": "error",

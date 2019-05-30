@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import createParameter from './parameter';
 import createProperty from './property';
 import createCalendar from './calendar';
@@ -6,7 +5,7 @@ import createCalendar from './calendar';
 describe('ics/model/calendar', () => {
   it('should convert to string', () => {
     const cal = createCalendar({});
-    expect(cal.toString()).to.equal('BEGIN:VCALENDAR\r\nEND:VCALENDAR');
+    expect(cal.toString()).toBe('BEGIN:VCALENDAR\r\nEND:VCALENDAR');
   });
 
   it('should convert to string with properties', () => {
@@ -21,7 +20,7 @@ describe('ics/model/calendar', () => {
     ];
 
     const cal = createCalendar({ properties });
-    expect(cal.toString()).to.equal(
+    expect(cal.toString()).toBe(
       [
         'BEGIN:VCALENDAR',
         'DTSTART;TZID=America/Chicago;VALUE="foo:bar":2018-01-01',
