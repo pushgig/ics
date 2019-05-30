@@ -1,0 +1,52 @@
+{
+  "name": "push-ics",
+  "version": "0.1.0",
+  "description": "iCal (.ics) generator with full support for timezones",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "lint": "eslint src",
+    "prettier": "prettier --write --config ./.prettierrc",
+    "format": "yarn prettier \"{src}/**/*.js\"",
+    "flow": "flow --show-all-errors; test $? -eq 0",
+    "jest": "jest",
+    "ci": "yarn run flow && yarn run lint && yarn test"
+  },
+  "repository": {
+    "git": "https://github.com/pushgig/push-ics"
+  },
+  "author": "John French <john.french@pushgig.com>",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.js",
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "verbose": true
+  },
+  "dependencies": {
+    "luxon": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-import-resolver-babel-module": "5.1.0",
+    "eslint-plugin-flowtype": "3.9.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "flow-bin": "0.99.1",
+    "jest": "24.8.0",
+    "prettier": "1.17.1"
+  }
+}

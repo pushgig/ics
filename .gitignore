@@ -1,0 +1,4 @@
+node_modules
+*.log
+codeship.aes
+package-lock.json

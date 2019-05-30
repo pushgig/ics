@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base", "plugin:prettier/recommended", "plugin:flowtype/recommended"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "plugins": ["prettier", "flowtype"],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-body-style": 0,
+    "import/no-duplicates": [2],
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/newline-after-import": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "flowtype/space-after-type-colon": [2, "always", { "allowLineBreak": true }]
+  }
+}

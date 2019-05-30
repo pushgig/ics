@@ -1,0 +1,87 @@
+// @flow
+export default [
+  {
+    id: 'America/Los_Angeles',
+    raw: `
+      BEGIN:VTIMEZONE
+      TZID:America/Los_Angeles
+      X-LIC-LOCATION:America/Los_Angeles
+      BEGIN:DAYLIGHT
+      TZOFFSETFROM:-0800
+      TZOFFSETTO:-0700
+      TZNAME:PDT
+      DTSTART:19700308T020000
+      RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+      END:DAYLIGHT
+      BEGIN:STANDARD
+      TZOFFSETFROM:-0700
+      TZOFFSETTO:-0800
+      TZNAME:PST
+      DTSTART:19701101T020000
+      RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+      END:STANDARD
+      END:VTIMEZONE
+    `,
+  },
+  {
+    id: 'America/Phoenix',
+    raw: `
+      BEGIN:VTIMEZONE
+      TZID:America/Phoenix
+      X-LIC-LOCATION:America/Phoenix
+      BEGIN:STANDARD
+      TZOFFSETFROM:-0700
+      TZOFFSETTO:-0700
+      TZNAME:MST
+      DTSTART:19700101T000000
+      END:STANDARD
+      END:VTIMEZONE
+    `,
+  },
+  {
+    id: 'America/Chicago',
+    raw: `
+      BEGIN:VTIMEZONE
+      TZID:America/Chicago
+      X-LIC-LOCATION:America/Chicago
+      BEGIN:DAYLIGHT
+      TZOFFSETFROM:-0600
+      TZOFFSETTO:-0500
+      TZNAME:CDT
+      DTSTART:19700308T020000
+      RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+      END:DAYLIGHT
+      BEGIN:STANDARD
+      TZOFFSETFROM:-0500
+      TZOFFSETTO:-0600
+      TZNAME:CST
+      DTSTART:19701101T020000
+      RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+      END:STANDARD
+      END:VTIMEZONE
+    `,
+  },
+  {
+    id: 'America/New_York',
+    raw: `
+      BEGIN:VTIMEZONE
+      TZID:America/New_York
+      X-LIC-LOCATION:America/New_York
+      BEGIN:DAYLIGHT
+      TZOFFSETFROM:-0500
+      TZOFFSETTO:-0400
+      TZNAME:EDT
+      DTSTART:19700308T020000
+      RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+      END:DAYLIGHT
+      BEGIN:STANDARD
+      TZOFFSETFROM:-0400
+      TZOFFSETTO:-0500
+      TZNAME:EST
+      DTSTART:19701101T020000
+      RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+      END:STANDARD
+      END:VTIMEZONE
+    `,
+  },
+];

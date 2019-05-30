@@ -1,0 +1,4 @@
+# no need to fight with yarn over
+# how package.json should be formatted
+package.json
+*.md
