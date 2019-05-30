@@ -9,7 +9,7 @@
     "prettier": "prettier --write --config ./.prettierrc",
     "format": "yarn prettier \"src/**/*.js\"",
     "flow": "flow --show-all-errors; test $? -eq 0",
-    "jest": "jest",
+    "test": "jest",
     "ci": "yarn run flow && yarn run lint && yarn test"
   },
   "repository": {
@@ -31,8 +31,10 @@
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/plugin-transform-runtime": "7.4.4",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-flow": "7.0.0",
+    "@babel/runtime": "7.4.5",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.8.0",
     "eslint": "5.3.0",
