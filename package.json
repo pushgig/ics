@@ -5,12 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
+    "prepublish": "yarn build",
     "lint": "eslint src",
     "prettier": "prettier --write --config ./.prettierrc",
     "format": "yarn prettier \"src/**/*.js\"",
     "flow": "flow --show-all-errors; test $? -eq 0",
     "test": "jest",
-    "ci": "yarn run flow && yarn run lint && yarn test"
+    "ci": "yarn flow && yarn lint && yarn test"
   },
   "repository": {
     "git": "https://github.com/pushgig/push-ics"
