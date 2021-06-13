@@ -1,5 +1,5 @@
 {
-  "name": "push-ics",
+  "name": "pushgig-ics",
   "version": "0.1.0",
   "description": "iCal (.ics) generator with full support for timezones",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
     "prettier:format": "prettier --write --config ./.prettierrc \"**/*.{js,ts,graphql,md}\""
   },
   "repository": {
-    "git": "https://github.com/pushgig/push-ics"
+    "git": "https://github.com/pushgig/ics"
   },
   "author": "John French <john.french@pushgig.com>",
   "license": "MIT",
