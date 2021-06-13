@@ -1,4 +1,3 @@
-// @flow
 import { shouldQuote, quote } from '../utils/string'
 
 export const ABBREV = 'ABBREV'
@@ -29,17 +28,17 @@ export const VVENUE = 'VVENUE'
 export const EXPERIMENTAL_PREFIX = 'X-'
 
 export type ParameterProps = {
-  name: string,
-  value: string,
+  name: string
+  value: string
 }
 
 export type Parameter = {
-  toString: () => string,
+  toString: () => string
 }
 
 export function parametersToString(params: Parameter[]): string {
   return params
-    .reduce((accum, param) => {
+    .reduce((accum: Parameter[], param) => {
       return accum.concat([';'], param.toString())
     }, [])
     .join('')

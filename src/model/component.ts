@@ -1,6 +1,5 @@
-// @flow
 import { joinLines } from '../utils/string'
-import createProperty, { type Property, type PropertyProps, propertiesToString } from './property'
+import createProperty, { Property, PropertyProps, propertiesToString } from './property'
 
 export const BEGIN = 'BEGIN'
 export const END = 'END'
@@ -16,13 +15,13 @@ export const AVAILABLE = 'AVAILABLE'
 export const EXPERIMENTAL_PREFIX = 'X-'
 
 export type ComponentProps = {
-  name: string,
-  properties?: Property[],
+  name: string
+  properties?: Property[]
 }
 
 export type Component = {
-  addProperty: (PropertyProps) => Property,
-  toString: () => string,
+  addProperty: (PropertyProps) => Property
+  toString: () => string
 }
 
 export function componentsToString(components: Component[]): string {

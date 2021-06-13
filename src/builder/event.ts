@@ -1,4 +1,3 @@
-// @flow
 import {
   UID,
   SUMMARY,
@@ -11,26 +10,26 @@ import {
   GEO,
   URL,
 } from '../model/property'
-import createParameter, { TZID } from '../model/parameter'
-import createComponent, { type Component, VEVENT } from '../model/component'
-import createDuration, { type DurationProps } from '../model/values/duration'
-import createDateTime, { type DateTimeProps } from '../model/values/datetime'
-import createGeo, { type GeoProps } from '../model/values/geo'
+import createParameter, { Parameter, TZID } from '../model/parameter'
+import createComponent, { Component, VEVENT } from '../model/component'
+import createDuration, { DurationProps } from '../model/values/duration'
+import createDateTime, { DateTimeProps } from '../model/values/datetime'
+import createGeo, { GeoProps } from '../model/values/geo'
 import { customPropertyName } from '../utils/string'
 
 export type EventBuilderProps = {
-  uid?: string,
-  summary?: string,
-  description?: string,
-  start: DateTimeProps,
-  duration?: DurationProps,
-  end?: DateTimeProps,
-  timeZone?: string,
-  location?: string,
-  geo?: GeoProps,
-  url?: string,
-  status?: string,
-  meta?: Object,
+  uid?: string
+  summary?: string
+  description?: string
+  start: DateTimeProps
+  duration?: DurationProps
+  end?: DateTimeProps
+  timeZone?: string
+  location?: string
+  geo?: GeoProps
+  url?: string
+  status?: string
+  meta?: Object
 }
 
 export default function buildEvent(props: EventBuilderProps): Component {
@@ -72,7 +71,7 @@ export default function buildEvent(props: EventBuilderProps): Component {
   }
 
   // get TZID param for use in DTSTART and DTEND
-  const dateParams = []
+  const dateParams: Parameter[] = []
 
   if (timeZone) {
     // add ;TZID= param

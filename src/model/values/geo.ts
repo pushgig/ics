@@ -1,11 +1,10 @@
-// @flow
 export type GeoProps = {
-  lat: number,
-  lng: number,
+  lat: number | string
+  lng: number | string
 }
 
 export type Geo = {
-  toString: () => string,
+  toString: () => string
 }
 
 export default function createGeo(props: GeoProps): Geo {
@@ -13,7 +12,7 @@ export default function createGeo(props: GeoProps): Geo {
 
   return {
     toString(): string {
-      return `${lat};${lng}`
+      return `${lat.toString()};${lng.toString()}`
     },
   }
 }

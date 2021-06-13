@@ -1,4 +1,3 @@
-// @flow
 import {
   PRODID,
   VERSION,
@@ -8,26 +7,26 @@ import {
   X_WR_CALDESC,
   X_PUBLISHED_TTL,
 } from '../model/property'
-import createCalendar, { type Calendar } from '../model/calendar'
+import createCalendar, { Calendar } from '../model/calendar'
 import { getDefaultTimeZone } from './timezone'
 import { customPropertyName } from '../utils/string'
-import createDuration, { type DurationProps } from '../model/values/duration'
-import buildEvent, { type EventBuilderProps } from './event'
+import createDuration, { DurationProps } from '../model/values/duration'
+import buildEvent, { EventBuilderProps } from './event'
 
 export type CalendarBuilderProps = {
-  prodid?: string,
-  name?: string,
-  description?: string,
-  ttl?: DurationProps,
-  events?: EventBuilderProps[],
-  meta?: Object,
+  prodid?: string
+  name?: string
+  description?: string
+  ttl?: DurationProps
+  events?: EventBuilderProps[]
+  meta?: Object
 }
 
 export default function buildCalendar(props: CalendarBuilderProps): Calendar {
   const { prodid = 'pushgig-ics', ttl = { hours: 1 }, name, description, events = [], meta } = props
 
   // gather unique timezones from events
-  const tzids = events.reduce((accum, event) => {
+  const tzids = events.reduce((accum: string[], event) => {
     if (event.timeZone && !accum.includes(event.timeZone)) {
       return [...accum, event.timeZone]
     }

@@ -83,7 +83,7 @@ describe('ics/builder/calendar', () => {
           {
             uid: 'abc-123',
             summary: 'New Event',
-            start: '2018-01-01T20:00:00',
+            start: { utc: '2018-01-01T20:00:00' },
             timeZone: 'Bad/Timezone',
           },
         ],

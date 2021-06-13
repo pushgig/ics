@@ -1,5 +1,4 @@
-// @flow
-import createComponent, { type Component, type ComponentProps } from '../component'
+import createComponent, { Component, ComponentProps } from '../component'
 
 export const DAYLIGHT = 'DAYLIGHT'
 export const STANDARD = 'STANDARD'

@@ -1,4 +1,3 @@
-// @flow
 export default [
   {
     id: 'America/Los_Angeles',

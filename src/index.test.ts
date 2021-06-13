@@ -8,6 +8,7 @@ describe('ics/index', () => {
       description: '*'.repeat(1000),
       events: [
         {
+          start: { utc: '2018-01-01T20:00:00' },
           summary: '*'.repeat(1000),
           description: '*'.repeat(1000),
           url: '*'.repeat(1000),

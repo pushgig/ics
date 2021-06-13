@@ -1,12 +1,11 @@
-// @flow
 import { joinLines } from '../utils/string'
 
 export type RawProps = {
-  raw: string,
+  raw: string
 }
 
 export type Raw = {
-  toString: () => string,
+  toString: () => string
 }
 
 export default function createRaw(props: RawProps): Raw {

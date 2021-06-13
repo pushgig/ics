@@ -1,10 +1,9 @@
-// @flow
-import createTimeZone, { type TimeZone } from '../model/components/timezone'
+import createTimeZone, { TimeZone } from '../model/components/timezone'
 import createRaw from '../model/raw'
 import defaults from './timezones'
 
 export type TimeZoneBuilderProps = {
-  tzid: string,
+  tzid: string
 }
 
 export function getDefaultTimeZone(tzid: string): TimeZone {
@@ -19,6 +18,6 @@ export function getDefaultTimeZone(tzid: string): TimeZone {
 
 export default function buildTimeZone(props: TimeZoneBuilderProps): TimeZone {
   // FIXME: finish this
-  // $FlowFixMe
+  // @ts-ignore
   return createTimeZone(props)
 }

@@ -1,13 +1,12 @@
-// @flow
 import { DateTime as LuxDateTime } from 'luxon'
 
 export type DateTimeProps = {
-  local?: string,
-  utc?: string,
+  local?: string
+  utc?: string
 }
 
 export type DateTime = {
-  toString: () => string,
+  toString: () => string
 }
 
 export default function createDateTime(props: DateTimeProps): DateTime {

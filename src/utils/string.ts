@@ -1,4 +1,3 @@
-// @flow
 export const LINE_SEPARATOR = '\r\n'
 export const LINE_MAX_LENGTH = 75 // in octets
 
@@ -10,7 +9,7 @@ export function unquote(value: string): string {
   return value
 }
 
-export function quote(value: ?string): string {
+export function quote(value: string): string {
   if (value) {
     return `"${unquote(value)}"`
   }
@@ -53,7 +52,7 @@ export function byteLength(str: string): number {
 }
 
 export function foldLine(line: string): string {
-  const parts = []
+  const parts: string[] = []
   let current = line
   let length = LINE_MAX_LENGTH
 
@@ -67,9 +66,9 @@ export function foldLine(line: string): string {
   return parts.join('\r\n\t')
 }
 
-export function joinLines(lines: string[], trailingNewline: boolean = false): string {
+export function joinLines(lines: any[], trailingNewline: boolean = false): string {
   const joined = lines
-    .map((line) => (line ? line.trim() : null))
+    .map((line) => line && line.trim())
     .filter((line) => line && line.length)
     .join(LINE_SEPARATOR)
   return trailingNewline ? `${joined}${LINE_SEPARATOR}` : joined

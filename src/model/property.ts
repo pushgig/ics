@@ -1,4 +1,3 @@
-// @flow
 import { joinLines, foldLine, escape } from '../utils/string'
 import { parametersToString } from './parameter'
 
@@ -71,17 +70,17 @@ export const X_PUBLISHED_TTL = 'X-PUBLISHED-TTL'
 export const ESCAPED_PROPERTIES = [NAME, DESCRIPTION, SUMMARY, LOCATION, X_WR_CALNAME, X_WR_CALDESC]
 
 export type PropertyValue = {
-  toString: () => string,
+  toString: () => string
 }
 
 export type PropertyProps = {
-  name: string,
-  value: PropertyValue | string,
-  parameters?: Object[],
+  name: string
+  value: PropertyValue | string
+  parameters?: Object[]
 }
 
 export type Property = {
-  toString: () => string,
+  toString: () => string
 }
 
 export function propertiesToString(properties: Property[]): string {

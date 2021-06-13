@@ -1,12 +1,7 @@
-// @flow
 import { joinLines } from '../utils/string'
-import createProperty, { type Property, type PropertyProps, propertiesToString } from './property'
-import createTimeZone, {
-  type TimeZone,
-  type TimeZoneProps,
-  timeZonesToString,
-} from './components/timezone'
-import { type Component, componentsToString } from './component'
+import createProperty, { Property, PropertyProps, propertiesToString } from './property'
+import createTimeZone, { TimeZone, TimeZoneProps, timeZonesToString } from './components/timezone'
+import { Component, componentsToString } from './component'
 
 // Standard tokens
 export const BEGIN = 'BEGIN'
@@ -14,15 +9,15 @@ export const VCALENDAR = 'VCALENDAR'
 export const END = 'END'
 
 export type CalendarProps = {
-  properties?: Property[],
-  timeZones?: TimeZone[],
-  components?: Component[],
+  properties?: Property[]
+  timeZones?: TimeZone[]
+  components?: Component[]
 }
 
 export type Calendar = {
-  addProperty: (PropertyProps) => Property,
-  addTimeZone: (TimeZoneProps) => TimeZone,
-  toString: () => string,
+  addProperty: (PropertyProps) => Property
+  addTimeZone: (TimeZoneProps) => TimeZone
+  toString: () => string
 }
 
 export default function createCalendar(props: CalendarProps): Calendar {
