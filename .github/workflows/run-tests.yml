@@ -15,7 +15,7 @@ jobs:
 
       - name: Build
         run: yarn build
-      - name: Lint
-        run: yarn lint
+      - name: Check Formatting
+        run: yarn prettier:check
       - name: Test
         run: yarn test

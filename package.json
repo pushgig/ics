@@ -6,11 +6,10 @@
   "scripts": {
     "build": "tsc -b --incremental",
     "prepublish": "yarn build",
-    "lint": "eslint src",
-    "prettier": "prettier --write --config ./.prettierrc",
-    "format": "yarn prettier \"src/**/*.js\"",
     "test": "jest",
-    "ci": "yarn build && yarn lint && yarn test"
+    "ci": "yarn build && yarn test",
+    "prettier:check": "prettier --check '**/*.{js,ts,graphql}'",
+    "prettier:format": "prettier --write --config ./.prettierrc \"**/*.{js,ts,graphql,md}\""
   },
   "repository": {
     "git": "https://github.com/pushgig/push-ics"
@@ -18,16 +17,11 @@
   "author": "John French <john.french@pushgig.com>",
   "license": "MIT",
   "dependencies": {
-    "luxon": "1.15.0",
+    "luxon": "^1.27.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
-    "eslint": "5.3.0",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-config-prettier": "4.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "3.1.0",
     "jest": "^27.0.4",
     "prettier": "^2.3.1",
     "ts-jest": "^27.0.3",
