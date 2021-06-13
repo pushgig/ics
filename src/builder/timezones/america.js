@@ -39,6 +39,29 @@ export default [
     `,
   },
   {
+    id: 'America/Boise',
+    raw: `
+      BEGIN:VTIMEZONE
+      TZID:America/Boise
+      X-LIC-LOCATION:America/Boise
+      BEGIN:STANDARD
+      TZOFFSETFROM:-0600
+      TZOFFSETTO:-0700
+      TZNAME:MST
+      DTSTART:19701025T020000
+      RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+      END:STANDARD
+      BEGIN:DAYLIGHT
+      TZOFFSETFROM:-0700
+      TZOFFSETTO:-0600
+      TZNAME:MDT
+      DTSTART:19700405T020000
+      RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
+      END:DAYLIGHT
+      END:VTIMEZONE
+    `,
+  },
+  {
     id: 'America/Chicago',
     raw: `
       BEGIN:VTIMEZONE
