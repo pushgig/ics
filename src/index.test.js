@@ -1,5 +1,5 @@
-import { LINE_MAX_LENGTH } from './utils/string';
-import { buildCalendar } from '.';
+import { LINE_MAX_LENGTH } from './utils/string'
+import { buildCalendar } from '.'
 
 describe('ics/index', () => {
   it('should never write lines longer than LINE_MAX_LENGTH characters', () => {
@@ -15,10 +15,10 @@ describe('ics/index', () => {
           status: '*'.repeat(1000),
         },
       ],
-    });
+    })
 
-    const ics = cal.toString();
-    const max = Math.max(...ics.split('\r\n').map(line => line.length));
-    expect(max).toBeLessThanOrEqual(LINE_MAX_LENGTH);
-  });
-});
+    const ics = cal.toString()
+    const max = Math.max(...ics.split('\r\n').map((line) => line.length))
+    expect(max).toBeLessThanOrEqual(LINE_MAX_LENGTH)
+  })
+})

@@ -1,4 +1,4 @@
-import buildCalendar from './calendar';
+import buildCalendar from './calendar'
 
 describe('ics/builder/calendar', () => {
   it('should build a calendar', () => {
@@ -28,7 +28,7 @@ describe('ics/builder/calendar', () => {
           },
         },
       ],
-    });
+    })
 
     expect(cal.toString()).toBe(
       [
@@ -71,8 +71,8 @@ describe('ics/builder/calendar', () => {
         'END:VEVENT',
         'END:VCALENDAR',
       ].join('\r\n'),
-    );
-  });
+    )
+  })
 
   it('should throw on invalid timezone', () => {
     expect(() =>
@@ -88,6 +88,6 @@ describe('ics/builder/calendar', () => {
           },
         ],
       }),
-    ).toThrowError();
-  });
-});
+    ).toThrowError()
+  })
+})

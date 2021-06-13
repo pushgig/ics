@@ -1,4 +1,4 @@
-import buildEvent from './event';
+import buildEvent from './event'
 
 describe('ics/builder/event', () => {
   it('should build an event', () => {
@@ -23,7 +23,7 @@ describe('ics/builder/event', () => {
         lng: '66.6666',
       },
       url: 'http://pushgig.com',
-    });
+    })
 
     expect(cal.toString()).toBe(
       [
@@ -40,6 +40,6 @@ describe('ics/builder/event', () => {
         'X-META-PROFILEID:profile123',
         'END:VEVENT',
       ].join('\r\n'),
-    );
-  });
-});
+    )
+  })
+})

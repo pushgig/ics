@@ -1,33 +1,33 @@
 // @flow
-import { DateTime as LuxDateTime } from 'luxon';
+import { DateTime as LuxDateTime } from 'luxon'
 
 export type DateTimeProps = {
   local?: string,
   utc?: string,
-};
+}
 
 export type DateTime = {
   toString: () => string,
-};
+}
 
 export default function createDateTime(props: DateTimeProps): DateTime {
-  const { local, utc } = props;
+  const { local, utc } = props
 
-  let dateTime;
+  let dateTime
 
   if (utc) {
-    dateTime = LuxDateTime.fromISO(utc).toUTC();
+    dateTime = LuxDateTime.fromISO(utc).toUTC()
   } else if (local) {
-    dateTime = LuxDateTime.fromISO(local);
+    dateTime = LuxDateTime.fromISO(local)
   }
 
   return {
     toString(): string {
       if (!dateTime || !dateTime.isValid) {
-        throw new TypeError(`Invalid date time [${[utc, local].filter(Boolean).join(',')}]`);
+        throw new TypeError(`Invalid date time [${[utc, local].filter(Boolean).join(',')}]`)
       }
 
-      return dateTime.toFormat(`yyyyMMdd'T'HHmmss`);
+      return dateTime.toFormat(`yyyyMMdd'T'HHmmss`)
     },
-  };
+  }
 }

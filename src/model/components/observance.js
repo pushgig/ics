@@ -1,12 +1,12 @@
 // @flow
-import createComponent, { type Component, type ComponentProps } from '../component';
+import createComponent, { type Component, type ComponentProps } from '../component'
 
-export const DAYLIGHT = 'DAYLIGHT';
-export const STANDARD = 'STANDARD';
+export const DAYLIGHT = 'DAYLIGHT'
+export const STANDARD = 'STANDARD'
 
-export type ObservanceProps = ComponentProps;
-export type Observance = Component;
+export type ObservanceProps = ComponentProps
+export type Observance = Component
 
 export default function createObservance(props: ObservanceProps): Observance {
-  return createComponent(props);
+  return createComponent(props)
 }

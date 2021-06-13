@@ -10,13 +10,13 @@ import {
   DURATION,
   GEO,
   URL,
-} from '../model/property';
-import createParameter, { TZID } from '../model/parameter';
-import createComponent, { type Component, VEVENT } from '../model/component';
-import createDuration, { type DurationProps } from '../model/values/duration';
-import createDateTime, { type DateTimeProps } from '../model/values/datetime';
-import createGeo, { type GeoProps } from '../model/values/geo';
-import { customPropertyName } from '../utils/string';
+} from '../model/property'
+import createParameter, { TZID } from '../model/parameter'
+import createComponent, { type Component, VEVENT } from '../model/component'
+import createDuration, { type DurationProps } from '../model/values/duration'
+import createDateTime, { type DateTimeProps } from '../model/values/datetime'
+import createGeo, { type GeoProps } from '../model/values/geo'
+import { customPropertyName } from '../utils/string'
 
 export type EventBuilderProps = {
   uid?: string,
@@ -31,7 +31,7 @@ export type EventBuilderProps = {
   url?: string,
   status?: string,
   meta?: Object,
-};
+}
 
 export default function buildEvent(props: EventBuilderProps): Component {
   const {
@@ -47,67 +47,67 @@ export default function buildEvent(props: EventBuilderProps): Component {
     geo,
     url,
     meta,
-  } = props;
+  } = props
 
-  const event = createComponent({ name: VEVENT });
+  const event = createComponent({ name: VEVENT })
 
   if (uid) {
-    event.addProperty({ name: UID, value: uid });
+    event.addProperty({ name: UID, value: uid })
   }
 
   if (summary) {
-    event.addProperty({ name: SUMMARY, value: summary });
+    event.addProperty({ name: SUMMARY, value: summary })
   }
 
   if (description) {
-    event.addProperty({ name: DESCRIPTION, value: description });
+    event.addProperty({ name: DESCRIPTION, value: description })
   }
 
   if (location) {
-    event.addProperty({ name: LOCATION, value: location });
+    event.addProperty({ name: LOCATION, value: location })
   }
 
   if (status) {
-    event.addProperty({ name: STATUS, value: status });
+    event.addProperty({ name: STATUS, value: status })
   }
 
   // get TZID param for use in DTSTART and DTEND
-  const dateParams = [];
+  const dateParams = []
 
   if (timeZone) {
     // add ;TZID= param
-    dateParams.push(createParameter({ name: TZID, value: timeZone }));
+    dateParams.push(createParameter({ name: TZID, value: timeZone }))
   }
 
   if (start) {
-    event.addProperty({ name: DTSTART, value: createDateTime(start), parameters: dateParams });
+    event.addProperty({ name: DTSTART, value: createDateTime(start), parameters: dateParams })
   }
 
   if (duration) {
-    event.addProperty({ name: DURATION, value: createDuration(duration) });
+    event.addProperty({ name: DURATION, value: createDuration(duration) })
   }
 
   if (end) {
-    event.addProperty({ name: DTEND, value: createDateTime(end), parameters: dateParams });
+    event.addProperty({ name: DTEND, value: createDateTime(end), parameters: dateParams })
   }
 
   if (geo) {
-    event.addProperty({ name: GEO, value: createGeo(geo) });
+    event.addProperty({ name: GEO, value: createGeo(geo) })
   }
 
   if (url) {
-    event.addProperty({ name: URL, value: url });
+    event.addProperty({ name: URL, value: url })
   }
 
   if (meta) {
-    Object.keys(meta).forEach(key => {
-      const value = meta[key];
+    Object.keys(meta).forEach((key) => {
+      const value = meta[key]
 
       if (value !== null && value !== undefined) {
-        event.addProperty({ name: customPropertyName('meta', key), value });
+        event.addProperty({ name: customPropertyName('meta', key), value })
       }
-    });
+    })
   }
 
-  return event;
+  return event
 }
