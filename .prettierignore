@@ -2,3 +2,4 @@
 # how package.json should be formatted
 package.json
 *.md
+dist
