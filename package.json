@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "iCal (.ics) generator with full support for timezones",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b --incremental",
-    "prepare": "yarn build",
-    "prepublish": "yarn build",
+    "prepare": "tsc",
+    "prepublish": "tsc",
     "test": "jest",
     "ci": "yarn build && yarn test",
     "prettier:check": "prettier --check '**/*.{js,ts,graphql}'",
