@@ -2,9 +2,10 @@
   "name": "pushgig-ics",
   "version": "0.1.0",
   "description": "iCal (.ics) generator with full support for timezones",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b --incremental",
+    "prepare": "yarn build",
     "prepublish": "yarn build",
     "test": "jest",
     "ci": "yarn build && yarn test",
