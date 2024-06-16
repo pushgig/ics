@@ -79,7 +79,12 @@ export default function buildEvent(props: EventBuilderProps): Component {
   }
 
   if (start) {
-    event.addProperty({ name: DTSTART, value: createDateTime(start), parameters: dateParams })
+    const dateTimeProp = createDateTime(start)
+    event.addProperty({
+      name: DTSTART,
+      value: dateTimeProp,
+      parameters: [...dateParams, ...dateTimeProp.parameters],
+    })
   }
 
   if (duration) {

@@ -19,4 +19,13 @@ describe('ics/model/parameter', () => {
 
     expect(parametersToString(params)).toBe(';TZID=America/Chicago;VALUE="foo:bar"')
   })
+
+  it('should include type', () => {
+    const params = [
+      createParameter({ name: 'VALUE', value: '20240616', type: 'DATE' }),
+      createParameter({ name: 'VALUE', value: 'foo:bar', type: 'DATE' }),
+    ]
+
+    expect(parametersToString(params)).toBe(';VALUE=DATE:20240616;VALUE=DATE:"foo:bar"')
+  })
 })

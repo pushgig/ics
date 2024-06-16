@@ -27,9 +27,12 @@ export const VALUE = 'VALUE'
 export const VVENUE = 'VVENUE'
 export const EXPERIMENTAL_PREFIX = 'X-'
 
+export const TYPE_DATE = 'DATE'
+
 export type ParameterProps = {
   name: string
   value: string
+  type?: string
 }
 
 export type Parameter = {
@@ -45,15 +48,17 @@ export function parametersToString(params: Parameter[]): string {
 }
 
 export default function createParameter(props: ParameterProps): Parameter {
-  const { name, value } = props
+  const { name, value, type } = props
 
   return {
     toString(): string {
+      const valueType = type ? `${type}:` : ``
+
       if (shouldQuote(value)) {
-        return `${name}=${quote(value)}`
+        return `${name}=${valueType}${quote(value)}`
       }
 
-      return `${name}=${value}`
+      return `${name}=${valueType}${value}`
     },
   }
 }

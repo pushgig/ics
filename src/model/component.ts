@@ -20,7 +20,7 @@ export type ComponentProps = {
 }
 
 export type Component = {
-  addProperty: (PropertyProps) => Property
+  addProperty: (props: PropertyProps) => Property
   toString: () => string
 }
 
