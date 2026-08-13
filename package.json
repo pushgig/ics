@@ -8,7 +8,7 @@
     "build": "tsc -b --incremental",
     "prepare": "tsc",
     "prepublish": "tsc",
-    "test": "jest",
+    "test": "vitest run",
     "ci": "yarn build && yarn test",
     "prettier:check": "prettier --check '**/*.{js,ts,graphql}'",
     "prettier:format": "prettier --write --config ./.prettierrc \"**/*.{js,ts,graphql,md}\""
@@ -23,10 +23,8 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "jest": "^27.0.4",
     "prettier": "^2.3.1",
-    "ts-jest": "^27.0.3",
-    "typescript": "^4.3.2"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.7"
   }
 }

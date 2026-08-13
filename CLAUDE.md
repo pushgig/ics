@@ -9,12 +9,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - Build: `yarn build` (incremental `tsc -b`, emits to `dist/`)
-- Test: `yarn test` (jest via ts-jest)
+- Test: `yarn test` (vitest)
 - Run a single test file: `yarn test src/builder/event.test.ts` (or `yarn test -t "test name"` to filter by name)
 - Build + test (what CI runs): `yarn ci`
 - Format check / write: `yarn prettier:check` / `yarn prettier:format`
 
-Node version is pinned in `.node-version` (14.17.0). Package manager is yarn (`yarn.lock`).
+Node version is pinned in `.node-version` (24.15.0). Package manager is yarn (`yarn.lock`).
 
 ## Architecture
 
