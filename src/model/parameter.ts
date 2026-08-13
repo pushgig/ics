@@ -32,7 +32,6 @@ export const TYPE_DATE = 'DATE'
 export type ParameterProps = {
   name: string
   value: string
-  type?: string
 }
 
 export type Parameter = {
@@ -48,17 +47,15 @@ export function parametersToString(params: Parameter[]): string {
 }
 
 export default function createParameter(props: ParameterProps): Parameter {
-  const { name, value, type } = props
+  const { name, value } = props
 
   return {
     toString(): string {
-      const valueType = type ? `${type}:` : ``
-
       if (shouldQuote(value)) {
-        return `${name}=${valueType}${quote(value)}`
+        return `${name}=${quote(value)}`
       }
 
-      return `${name}=${valueType}${value}`
+      return `${name}=${value}`
     },
   }
 }

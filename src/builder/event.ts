@@ -79,11 +79,14 @@ export default function buildEvent(props: EventBuilderProps): Component {
   }
 
   if (start) {
-    const dateTimeProp = createDateTime(start)
+    const dateTime = createDateTime(start)
     event.addProperty({
       name: DTSTART,
-      value: dateTimeProp,
-      parameters: [...dateParams, ...dateTimeProp.parameters],
+      value: dateTime,
+      // TZID is not allowed on date-only (VALUE=DATE) properties
+      parameters: dateTime.isDateOnly
+        ? dateTime.parameters
+        : [...dateParams, ...dateTime.parameters],
     })
   }
 
@@ -92,7 +95,14 @@ export default function buildEvent(props: EventBuilderProps): Component {
   }
 
   if (end) {
-    event.addProperty({ name: DTEND, value: createDateTime(end), parameters: dateParams })
+    const dateTime = createDateTime(end)
+    event.addProperty({
+      name: DTEND,
+      value: dateTime,
+      parameters: dateTime.isDateOnly
+        ? dateTime.parameters
+        : [...dateParams, ...dateTime.parameters],
+    })
   }
 
   if (geo) {

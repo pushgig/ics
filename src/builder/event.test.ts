@@ -42,4 +42,52 @@ describe('ics/builder/event', () => {
       ].join('\r\n'),
     )
   })
+
+  it('should build an all-day event from a date-only start', () => {
+    const cal = buildEvent({
+      uid: 'abc-123',
+      summary: 'New Event',
+      status: 'TENTATIVE',
+      start: {
+        local: '2026-08-13',
+      },
+      timeZone: 'America/Chicago',
+    })
+
+    // date-only values must use VALUE=DATE and omit TZID
+    expect(cal.toString()).toBe(
+      [
+        'BEGIN:VEVENT',
+        'UID:abc-123',
+        'SUMMARY:New Event',
+        'STATUS:TENTATIVE',
+        'DTSTART;VALUE=DATE:20260813',
+        'END:VEVENT',
+      ].join('\r\n'),
+    )
+  })
+
+  it('should build a multi-day all-day event with a date-only end', () => {
+    const cal = buildEvent({
+      uid: 'abc-123',
+      start: {
+        local: '2026-08-13',
+      },
+      end: {
+        local: '2026-08-15',
+      },
+      timeZone: 'America/Chicago',
+    })
+
+    expect(cal.toString()).toBe(
+      [
+        'BEGIN:VEVENT',
+        'UID:abc-123',
+        'STATUS:CONFIRMED',
+        'DTSTART;VALUE=DATE:20260813',
+        'DTEND;VALUE=DATE:20260815',
+        'END:VEVENT',
+      ].join('\r\n'),
+    )
+  })
 })

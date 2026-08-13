@@ -1,5 +1,5 @@
 import { DateTime as LuxDateTime } from 'luxon'
-import createParameter, { Parameter } from '../parameter'
+import createParameter, { Parameter, VALUE, TYPE_DATE } from '../parameter'
 
 export type DateTimeProps = {
   local?: string
@@ -7,6 +7,7 @@ export type DateTimeProps = {
 }
 
 export type DateTime = {
+  isDateOnly: boolean
   parameters: Parameter[]
   toString: () => string
 }
@@ -15,7 +16,7 @@ export default function createDateTime(props: DateTimeProps): DateTime {
   const { local, utc } = props
 
   let dateTime: LuxDateTime
-  const hasTime = ((utc ?? local)?.length ?? 0) > 10
+  const isDateOnly = ((utc ?? local)?.length ?? 0) <= 10
 
   if (utc) {
     dateTime = LuxDateTime.fromISO(utc).toUTC()
@@ -24,19 +25,18 @@ export default function createDateTime(props: DateTimeProps): DateTime {
   }
 
   return {
-    parameters: hasTime
-      ? []
-      : [createParameter({ name: 'VALUE', type: 'DATE', value: dateTime.toFormat('yyyyMMdd') })],
+    isDateOnly,
+    parameters: isDateOnly ? [createParameter({ name: VALUE, value: TYPE_DATE })] : [],
     toString(): string {
       if (!dateTime || !dateTime.isValid) {
         throw new TypeError(`Invalid date time [${[utc, local].filter(Boolean).join(',')}]`)
       }
 
-      if (hasTime) {
-        return dateTime.toFormat(`yyyyMMdd'T'HHmmss`)
+      if (isDateOnly) {
+        return dateTime.toFormat('yyyyMMdd')
       }
 
-      return ''
+      return dateTime.toFormat(`yyyyMMdd'T'HHmmss`)
     },
   }
 }
